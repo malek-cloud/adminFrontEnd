@@ -4,10 +4,10 @@ function navigationBar() {
       <nav className="navbar navbar-light ">
         <div className="container-fluid  sticky-top ">
           <div className="d-flex justify-content-start align-items-center ">
-            <a href="#t" className="navbar-brand me-4">
+            <a href="/" className="navbar-brand me-4">
               <img
                 style={{ height: "75px" }}
-                alt=""
+                alt="/"
                 className="logo"
                 src="images/oyemkemlavert.png"
               />
@@ -68,7 +68,7 @@ function navigationBar() {
                   maxHeight: "50px",
                 }}
                 alt=""
-                src="images/profile.jpg"
+                src="images/miki.png"
               />
             </div>
             <div className="navbar expand-md-1 m-2">

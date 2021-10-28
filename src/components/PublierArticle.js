@@ -1,40 +1,76 @@
-import { useRef } from "react";
-
+import { useRef, useState } from "react";
+import "./GrowItem.scss" ;
+import { Modal } from "react-bootstrap";
+import FileUpload from "../elements/FileUpload" ;
 function PublierArticle(props) {
   const titleInputRef = useRef();
-  const fileInputRef = useRef();
   const contentInputRef = useRef();
-
-  
-   
-
+  const [fileUpload, setFileUpload] = useState();
 
     function submitHandler(event){
       event.preventDefault()
     const entredTitle = titleInputRef.current.value ;
-    const entredFile = fileInputRef.current.value ;
     const entredContent = contentInputRef.current.value ;
 
-    const articleData = {
-        title :  entredTitle,
-        file : entredFile,
-        content : entredContent
+   // const articleData = {
+     //   title :  entredTitle,
+        //file : fileUpload,
+       // content : entredContent
         
-    };
-    props.onAddArticle(articleData) ; 
+    //};
+    //props.onAddArticle(articleData) ; 
+
+
+    const formData  = new FormData() ;
+    formData.append('title' , entredTitle);
+    formData.append('image' , fileUpload);
+    formData.append('content' , entredContent);
+    console.log(formData) ;
+    fetch("http://localhost:5000/createPost", {
+      method: "POST",
+      body  : formData 
+      //body: JSON.stringify(articleData),
+     // headers: {
+     //   "Content-Type": "application/json",
+     // },
+    });
+
+
+
     }
-  
- 
+    
+
+    const handleSendFile = file => {
+      setFileUpload(file); 
+    }
     return (
-      <div
-      >
-        <div className="d-flex my-2 justify-content-center text-success">
+      <>
+        <Modal
+          {...props}
+          size="lg"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          show={props.show}
+          onHide={props.onHide}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton style={{textAlign : "center"}}>
+            <Modal.Title id="contained-modal-title-vcenter">
+            <div className="d-flex my-2 justify-content-center text-success">
           <h4>Publier un Article</h4>
         </div>
-        <form onSubmit={submitHandler}>
-        <div className="row g-2 " >
-          <div className="col-md-9 ">
-            <div className="htmlForm-floating mt-4">
+            </Modal.Title>
+          </Modal.Header>
+          <form onSubmit={submitHandler}>
+          <Modal.Body>
+         
+        
+         
+          <div className="htmlForm-floating ">
+            <label htmlFor="title">Titre</label>
+            </div>
+            <div className="htmlForm-floating ">
               <input
                 type="text"
                 id="title"
@@ -43,32 +79,57 @@ function PublierArticle(props) {
                 style={{ height: "30px" }}
                 ref = {titleInputRef}
               />
-              <label htmlFor="title">Titre</label>
-            </div>
-          </div>
-          <div className="col-md">
-            <div>Upload an image/video/audio/pdf (optional) !</div>
-            <div className="input-group mb-3">
-              <input type="file" id="file" ref ={fileInputRef} className="form-control" />
-              <label className="input-group-text" htmlFor="file" >
-                Upload
-              </label>
              
             </div>
-          </div>
-        </div>
+           
+          
+          
+            <div>Upload an image/video/audio/pdf (optional) !</div>
+            <div className="input-group mb-3">
+              <FileUpload id="image" 
+              refer = "fileInputRef"
+              getFile = {handleSendFile}
+              errorText="Please provide a file." 
+              center/>
+             
+            </div>
+           
+          
+        
+        
+          
+           
+         
+         
+       
         <div className="htmlForm-floating mb-3">
+        <label htmlFor="content">Content</label>
           <input type="text" id="content" ref ={contentInputRef} required className="form-control" />
-          <label htmlFor="content">Content</label>
+          
         </div>
-        <div className="d-flex justify-content-center mb-3">
-          <button className="btn btn-success"  type="submit">
+          </Modal.Body>
+          <Modal.Footer>
+         
+
+          <div className="d-flex justify-content-center ">
+          <button className="btn btn-secondary grow mx-2" onClick={props.onHide}>
+            Annuler
+          </button>
+        </div>
+            <div className="d-flex justify-content-center ">
+          <button className="btn btn-success grow mx-2"  type="submit" onClick={props.onHide}>
             Publier
           </button>
         </div>
-        </form>
-      </div>
+          </Modal.Footer>
+          </form>
+        </Modal>
+      </>
     );
+
   }
 
 export default PublierArticle;
+
+
+

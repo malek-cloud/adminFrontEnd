@@ -1,6 +1,7 @@
+import "./GrowItem.scss";
 function chartOne() {
   return <div
-      className="col-md-3  m-1 py-2   bg-body "
+      className="col-md-3  m-1 py-2   bg-body growCard"
       style={{
         height: "fitContent",
         boxShadow: "0px 0px 15px -2px 	#B0B0B0",

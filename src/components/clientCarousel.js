@@ -1,3 +1,4 @@
+import "./GrowItem.scss";
 function clientCarousel() {
   return (
     <div
@@ -6,7 +7,7 @@ function clientCarousel() {
     >
       <div className="container">
         <div className="row">
-          <div className="col py-2 ms-3 my-3 me-1 shadow rounded ">
+          <div className="col py-2 ms-3 my-3 me-1 shadow rounded growCard">
             <div className="container">
               <div style={{ textAlign: "center" }}>
                 <img
@@ -18,7 +19,7 @@ function clientCarousel() {
                     maxWidth: "30px",
                     maxHeight: "30px",
                   }}
-                  src="images/profile.jpg"
+                  src="images/miki.png"
                   alt=""
                 />
               </div>
@@ -32,7 +33,7 @@ function clientCarousel() {
               </div>
             </div>
           </div>
-          <div className="col py-2 mx-1 my-3 shadow rounded ">
+          <div className="col py-2 mx-1 my-3 shadow rounded growCard">
             <div className="container">
               <div style={{ textAlign: "center" }}>
                 <img
@@ -45,7 +46,7 @@ function clientCarousel() {
                     maxWidth: "30px",
                     maxHeight: "30px",
                   }}
-                  src="images/profile.jpg"
+                  src="images/miki.png"
                 />
               </div>
               <div>
@@ -59,7 +60,7 @@ function clientCarousel() {
             </div>
           </div>
           <div
-            className="col py-2 ms-2 my-3 me-3 shadow rounded "
+            className="col py-2 ms-2 my-3 me-3 shadow rounded growCard"
             style={{ width: "80px" }}
           >
             <div className="container">
@@ -73,7 +74,7 @@ function clientCarousel() {
                     maxWidth: "30px",
                     maxHeight: "30px",
                   }}
-                  src="images/profile.jpg"
+                  src="images/miki.png"
                   alt=""
                 />
               </div>

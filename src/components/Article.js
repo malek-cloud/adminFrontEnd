@@ -1,11 +1,14 @@
 function Article(props) {
   return (
     <div
-      className="col-sm-12  mt-4 me-4  bg-body"
+      className=" mt-4 me-1  bg-body"
+
+
       style={{
         height: "fitContent",
         boxShadow: "0px 0px 15px -2px 	#B0B0B0",
         borderRadius: "15px",
+        
       }}
     >
       <h4 style={{ textAlign: "center", marginTop: "10px" }}>Ahmed Chouikh</h4>
@@ -19,7 +22,7 @@ function Article(props) {
           <span className="col-lg-4 mb-2">
             <img
               style={{ width: "270px", height: "270px" }}
-              src="images/profile.jpg"
+              src="images/miki.png"
               alt=""
             />
           </span>

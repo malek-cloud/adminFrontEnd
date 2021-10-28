@@ -6,7 +6,6 @@ function Intro() {
         height: "300px",
         boxShadow: "0px 0px 15px -2px 	#B0B0B0",
         borderRadius: "15px",
-        backgroundImage : "url(\"images/colin.jpg\")"
       }}
     >
       <div className="row">
@@ -23,7 +22,7 @@ function Intro() {
               maxHeight: "220px",
             }}
             alt=""
-            src="images/profile.jpg"
+            src="images/miki.png"
           />
         </div>
         <div className="col-md-5" style={{ paddingTop: "20px" }}>

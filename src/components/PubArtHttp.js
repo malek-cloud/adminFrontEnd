@@ -1,13 +1,18 @@
 import PublierArticle from "./PublierArticle";
 //import {useHistory} from 'react-router-dom' ;
 function PubArtHttp() {
-  function addArticleHandler(articleData) {
+  const  addArticleHandler =articleData => {
+    const formData  =FormData() ;
+    formData.append(articleData[0]);
+    formData.append(articleData[1]);
+    formData.append(articleData[2]);
     fetch("http://localhost:5000/createPost", {
       method: "POST",
-      body: JSON.stringify(articleData),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      body  : formData 
+      //body: JSON.stringify(articleData),
+     // headers: {
+     //   "Content-Type": "application/json",
+     // },
     });
   }
 
