@@ -3,19 +3,15 @@ import ChartTwo from "./chartTwo";
 import ClientCarousel from "./clientCarousel";
 import Action from "./Action";
 import PubArtHttp from "./PubArtHttp";
-import Article from "./Article";
-import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
+import Articles from "./Articles";
 
-
-function Art(){
-  return <div className="col-sm-9">
-    <Article/>
-  </div>
+function Art (){
+  return  <Articles/> ;
 }
 
 function Home() {
   return(
-    <Router>
+    
       <div className=" col  mb-2 me-2 ">
         <div className="mx-3">
           <div className="row ">
@@ -24,16 +20,15 @@ function Home() {
             <ClientCarousel />
           </div>
           <div className="row ">
-            <Switch>
-              <Route path="/" exact component={Art} />
-            </Switch>
-            <PubArtHttp />
-
+            
+              <div className="col-md-9">
+              <Art/>
+              </div>
             <Action />
           </div>
         </div>
       </div>
-    </Router>
+    
   );
   
 }

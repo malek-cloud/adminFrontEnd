@@ -6,7 +6,7 @@ function PubArtHttp() {
     formData.append(articleData[0]);
     formData.append(articleData[1]);
     formData.append(articleData[2]);
-    fetch("http://localhost:5000/createPost", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}createPost`, {
       method: "POST",
       body  : formData 
       //body: JSON.stringify(articleData),

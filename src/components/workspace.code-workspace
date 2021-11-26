@@ -1,0 +1,13 @@
+{
+    "folders": [
+		{
+			"path": "..\\..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\[FreeCourseSite.com] Udemy - React, NodeJS, Express & MongoDB - The MERN Fullstack Guide\\12. Adding Authentication\\auth-14-finished"
+		}
+	],
+    "settings": {
+        "git.ignoreLimitWarning": true
+    }
+}

@@ -1,23 +1,25 @@
-
 import Divider from "./divider";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import Profil from "../profileComponent/profil";
 import Home from "./home";
+import { useState } from "react";
 
 function Body() {
-  return (
-    <Router>
-      <Switch>
-        <div className="row">
-          <Divider  />
-          <Route path="/" exact component={Home} />
-          <Route path="/profil" exact component={Profil} />
-          
+  const [homee, setHome] = useState(true);
+  const [profil, setProfil] = useState(false);
+  function sethome(homee) {
+    setProfil(false);
+    setHome(true);
+  }
+  function setprofil(profil) {
+    setHome(false);
+    setProfil(true);
+  }
 
-          
-        </div>
-      </Switch>
-    </Router>
+  return (
+    <div className="row">
+      <Divider sethome={sethome} setprofil={setprofil} />
+      {homee && !profil ? <Home /> : <Profil />}
+    </div>
   );
 }
 export default Body;

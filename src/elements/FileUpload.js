@@ -37,6 +37,7 @@ const FileUpload = props => {
   };
 
   const pickImageHandler = () => {
+  
     filePickerRef.current.click();
     props.getFile(file) ;
   };
