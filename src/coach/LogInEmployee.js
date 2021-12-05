@@ -15,7 +15,7 @@ const LogIn =  () => {
     console.log(logInData.email +" "+ logInData.password );
       try {
         const responseData = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}employee/login`,
+          process.env.REACT_APP_BACKEND_URL +'employee/login',
           {
             method : 'POST',
             body : JSON.stringify(logInData),

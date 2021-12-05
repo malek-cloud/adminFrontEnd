@@ -5,11 +5,11 @@ import { Modal } from "react-bootstrap";
 //import FileBase from "react-file-base64";
 //import FileUpload from "../elements/FileUpload";
 function PublierArticle(props) {
-  const [baseImage, setBaseImage] = useState("");
+  //const [baseImage, setBaseImage] = useState("");
   const auth = useContext(AuthContext);
-  const uploadImage = async (e) => {
+ /* const uploadImage = async (e) => {
     const file = e.target.files[0];
-    const base64 = await convertBase64(file);
+   // const base64 = await convertBase64(file);
     setBaseImage(base64);
   };
 
@@ -26,31 +26,37 @@ function PublierArticle(props) {
         reject(error);
       };
     });
-  };
+  };*/
   const titleInputRef = useRef();
   const contentInputRef = useRef();
   //const [fileUpload, setFileUpload] = useState("");
 
-  const submitHandler = async (event) => {
+  const submitHandler = async () => {
     if(!auth.isLoggedIn){
       console.log("pas connecte");
-    }else{event.preventDefault();
-      console.log(auth.EmployeeId + "hedha l\'employé mel submit");
-      const entredTitle = titleInputRef.current.value;
-      const entredContent = contentInputRef.current.value;
+    }else{
      // const entredImage = baseImage;
-  
+
       try {
-        const formData = new FormData();
-        formData.append("title", entredTitle);
-        formData.append("employeeId", auth.EmployeeId);
-        formData.append("content", entredContent);
-      //  console.log(entredImage + " hedhy el image mel front");
-        await fetch(`${process.env.REACT_APP_BACKEND_URL}createPost`, {
+        const postData = {
+          title : titleInputRef.current.value,
+          employeeId : auth.EmployeeId,
+          content : contentInputRef.current.value
+        }
+
+        props.onHide();
+        const response = await fetch( process.env.REACT_APP_BACKEND_URL +'createPost', {
           method: "POST",
-          body: formData,
+          body: JSON.stringify(postData),
+          headers: {
+               "Content-Type": "application/json",
+             },
         });
-      } catch (err) {}}
+        const data = await response.json();
+        console.log(data);
+      } catch (err) {
+        console.log("erreur mateb3athch el post raw");
+      }}
   };
 
   
@@ -73,7 +79,7 @@ function PublierArticle(props) {
             </div>
           </Modal.Title>
         </Modal.Header>
-        <form onSubmit={submitHandler} enctype="multipart/form-data" >
+        <form /*onSubmit={submitHandler} enctype="multipart/form-data"*/ >
           <Modal.Body>
             <div className="htmlForm-floating ">
               <label htmlFor="title">Titre</label>
@@ -95,12 +101,12 @@ function PublierArticle(props) {
                 <div>
                   <input
                     type="file"
-                    onChange={(e) => {
+                   /* onChange={(e) => {
                       uploadImage(e);
-                    }}
+                    }}*/
                   />
                   <br></br>
-                  <img alt="" src={baseImage} height="200px" />
+                 { /*<img alt="" src={baseImage} height="200px" />*/}
                 </div>
 
                 {/*<FileBase
@@ -136,8 +142,8 @@ function PublierArticle(props) {
             <div className="d-flex justify-content-center ">
               <button
                 className="btn btn-success grow mx-2"
-                type="submit"
-                onClick={props.onHide}
+               
+                onClick={submitHandler}
               >
                 Publier
               </button>

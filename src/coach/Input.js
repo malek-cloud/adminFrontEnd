@@ -30,7 +30,7 @@ function Input(props) {
     }
     props.onHide() ;
     try {
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}employee/createEmployee`, {
+      const response = await fetch( process.env.REACT_APP_BACKEND_URL +'employee/createEmployee', {
         method: "POST",
         body: JSON.stringify(coachData),
         headers: {
@@ -129,7 +129,7 @@ function Input(props) {
           <Button variant="secondary" onClick={props.onHide}>
             Annuler
           </Button>
-          <Button className="btn btn-success grow mx-2" onClick={submit}>Understood</Button>
+          <Button className="btn btn-success grow mx-2" onClick={submit}>Créer</Button>
         </Modal.Footer>
       </Modal>
     </>

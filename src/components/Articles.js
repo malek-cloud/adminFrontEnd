@@ -10,7 +10,7 @@ function Articles(props) {
   useEffect(() => {
     setIsLoading(true);
     try {
-      fetch(`${process.env.REACT_APP_BACKEND_URL}posts`)
+      fetch(process.env.REACT_APP_BACKEND_URL + 'posts')
         .then((response) => response.json())
         .then((data) => {
           console.log("data", data.posts);

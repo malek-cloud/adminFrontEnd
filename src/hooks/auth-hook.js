@@ -1,5 +1,4 @@
-import { useState, useCallback, useEffect , useContext} from 'react';
-import  AuthContext  from '../context/authContext';
+import { useState, useCallback, useEffect } from 'react';
 let logoutTimer;
 
  const useAuth = () => {
