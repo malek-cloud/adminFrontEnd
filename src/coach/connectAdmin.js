@@ -1,25 +1,18 @@
 import "./LogInStyle.css";
 import "../components/GrowItem.scss";
-import {useContext } from "react";
-import  AuthContext  from '../context/authContext';
+import { useDispatch } from "react-redux";
 const ConnectAdmin = () => {
-  const auth = useContext(AuthContext);
+  const dispatch = useDispatch();
   function enterAsCoach(){
-    auth.enterType("coach");
-    console.log(auth.enterAs);
-
-
+    dispatch({type : 'coach'});
   }
   function enterAsSup(){
-    auth.enterType("sup");
-    console.log(auth.enterAs);
+    dispatch({type : 'sup'});
 
   }
   function enterAsAdmin(){
+    dispatch({type : 'admin'});
    
-    auth.enterType("admin");
-    console.log(auth.enterAs);
-
   }
   return (
   

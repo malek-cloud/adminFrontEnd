@@ -1,0 +1,81 @@
+        .usersType {
+            justify-content: space-between;
+            display: flex;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        
+        .type {
+            padding: 7px 15px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        
+        .type:hover {
+            border: none;
+            border-bottom: 2px solid darkslategrey;
+            color: darkslategrey;
+            font-size: 16px;
+            font-weight: bolder;
+        }
+        
+        .clicked {
+            padding: 7px 15px;
+            border: none;
+            border-bottom: 2px solid darkslategrey;
+            color: darkslategrey;
+            font-size: 17px;
+            font-weight: bolder;
+        }
+        
+        .connectedUsersImage {
+            border-radius: 50%;
+            height: 48px;
+            width: 48px;
+            object-fit: cover;
+            border: 1px solid white;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            -ms-border-radius: 50%;
+            -o-border-radius: 50%;
+        }
+        
+        .connectedName {
+            font-size: 15px;
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+        
+        .connectedPersonWrapper {
+            display: flex;
+            margin-top: 8px;
+            margin-bottom: 10px;
+            justify-content: flex-start;
+            padding: 8px 0px;
+            border-radius: 10px;
+        }
+        
+        .connectedPersonWrapper:hover {
+            background-color: rgb(212, 230, 214);
+        }
+        
+        .scrollConnect {
+            overflow-y: scroll;
+            height: 70vh;
+            ;
+        }
+        
+        .chatOnlineBadge {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: rgb(110, 30, 163);
+            top: 2px;
+            right: 0px;
+            border: 2px solid whitesmoke
+        }
+        
+        .chatOnlineImageContainer {
+            position: relative;
+        }

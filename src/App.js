@@ -5,30 +5,26 @@ import ConnectAdmin from "./coach/connectAdmin";
 import ConnectSup from "./coach/connectSup";
 import LogIn from "./coach/LogInEmployee";
 import All from "./components/all";
+import {useSelector, useDispatch} from "react-redux";
 function App() {
-  const auth = useContext(AuthContext);
+  const dispatch = useDispatch();
 
-  const { token,enterAs, login, logout,enterType, EmployeeId } = useAuth();
+  const enterAs = useSelector(state => state.enterAs)
+
+  const { token, login, logout, EmployeeId } = useAuth();
   let routes;
 
   if (token) {
-    
+
     if (enterAs !== "") {
-     
       routes = <All />;
-      console.log(enterAs);
-      auth.enterAs = enterAs ;
-      console.log(auth.enterAs);
     } else {
-      if (EmployeeId.typeEmployee === "administrateur") {
-        
+      if (EmployeeId.typeEmployee === "administrateur") {       
         routes = <ConnectAdmin />;
-        console.log(enterAs.length);
       } else if (EmployeeId.typeEmployee === "Superviseur") {
         routes = <ConnectSup />;
       } else if (EmployeeId.typeEmployee === "Coach") {
-        auth.enterType("coach") ;
-        console.log(token);
+        dispatch({type : 'coach'});
         routes = <All />;
       }
     }
@@ -41,9 +37,7 @@ function App() {
           isLoggedIn: !!token,
           token: token,
           EmployeeId: EmployeeId,
-          enterAs : enterAs,
           login: login,
-          enterType : enterType,
           logout: logout,
         }}
       >

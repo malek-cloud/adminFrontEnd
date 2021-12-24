@@ -64,14 +64,14 @@ function navigationBar() {
                   background: "#707070",
                   borderRadius: "50%",
                   border: "2px solid #404040 ",
-                  maxWidth: "50px",
-                  maxHeight: "50px",
+                  width: "50px",
+                  height: "50px",
                 }}
                 alt=""
-                src="images/miki.png"
+                src="images/profile.jpg"
               />
             </div>
-            <div className="navbar expand-md-1 m-2">
+            <div className="navbar expand-md-1 m-2 mt-4">
               <p>Malek Guedda</p>
             </div>
           </div>

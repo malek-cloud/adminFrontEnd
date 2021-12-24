@@ -25,7 +25,7 @@ function Divider(props) {
 
         <div className="message growIcon">
           <h2>
-            <i className="bi bi-chat-text-fill text-success "> </i>
+            <i className="bi bi-chat-text-fill text-success " onClick={props.setmessage} > </i>
           </h2>
         </div>
         <div className="message growIcon">

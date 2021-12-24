@@ -30,6 +30,7 @@ let logoutTimer;
         enterAs: enterAs
       })
     );
+    return enterAs ;
     
   }, []);
 

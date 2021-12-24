@@ -1,0 +1,47 @@
+.informations {
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    margin: 10px 0px;
+}
+
+.friend {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 10px 0px;
+}
+
+.friend:hover {
+    cursor: pointer;
+    background-color: rgb(185, 216, 195);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.friendImage {
+    height: 130px;
+    border-radius: 50%;
+    margin-left: 60px;
+}
+
+.question {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.answer {
+    font-size: 13px;
+}
+
+.alignDetail {
+    display: flex;
+}
+
+.scroll {
+    overflow-y: scroll;
+    height: 50vh;
+}

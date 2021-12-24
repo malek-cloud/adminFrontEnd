@@ -1,52 +1,52 @@
-import { useRef, useContext } from "react";
+import AuthContext from "../context/authContext";
+import { useRef, useState, useContext } from "react";
 import "./LogInStyle.css";
-import  AuthContext  from '../context/authContext';
-
-const LogIn =  () => {
+import LoadingSpinner from "./LoadingSpinner";
+const LogIn = () => {
   const emailRef = useRef();
   const passwdRef = useRef();
   const auth = useContext(AuthContext);
-  const authSubmitHandler = async event => {
+  const [loader, setLoader] = useState(false);
+
+  const authSubmitHandler = async (event) => {
     event.preventDefault();
+
     const logInData = {
       email: emailRef.current.value,
       password: passwdRef.current.value,
     };
-    console.log(logInData.email +" "+ logInData.password );
-      try {
-        const responseData = await fetch(
-          process.env.REACT_APP_BACKEND_URL +'employee/login',
-          {
-            method : 'POST',
-            body : JSON.stringify(logInData),
-            headers : {
-              'Content-Type': 'application/json'
-            }
-          }
-        );
-                                     
-        const data = await responseData.json();
-        console.log(data);
-        console.log(responseData.status);
-        auth.token = data.token ;
-        
-        
 
-
-        auth.login(data.Employee, data.token);
-        auth.EmployeeId = data.Employee  ;
-        console.log(auth.EmployeeId + " : DONNE LKOL ");
-        console.log(auth.EmployeeId.nom + " : el nom bark ");
-      } catch (err) {
-            console.log("mamchetech el check mta el login" + err);
+    try {
+      setLoader(true);
+      const responseData = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "employee/login",
+        {
+          method: "POST",
+          body: JSON.stringify(logInData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await responseData.json();
+      if(responseData.status == 200){
+        console.log("het el loader " + loader);
+      auth.token = data.token;
+      auth.login(data.Employee, data.token);
+      auth.EmployeeId = data.Employee;
+      setLoader(false);
+      console.log(data);
       }
-    
+    } catch (err) {
+      console.log("mamchetech el check mta el login" + err);
+    }
   };
-
 
   return (
     <div>
+      {loader && <LoadingSpinner asOverlay />}
       <header>
+        
         <table className="nav">
           <tr>
             <th>
@@ -86,9 +86,16 @@ const LogIn =  () => {
                   ref={passwdRef}
                 />
               </div>
-              <a href="/"   className="submit" onClick={authSubmitHandler} align="center">
+
+              <a
+                href="/"
+                className="submit"
+                onClick={authSubmitHandler}
+                align="center"
+              >
                 Se Connecter
               </a>
+
               <br />
               <br />
 
@@ -107,4 +114,4 @@ const LogIn =  () => {
   );
 };
 
-export default LogIn ;
+export default LogIn;

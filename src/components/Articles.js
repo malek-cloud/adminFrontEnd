@@ -28,7 +28,13 @@ function Articles(props) {
   if (isLoading) {
     return (
       <div>
-        <p>Loading..</p>
+        <p><div
+                  class="spinner-border text-success"
+                  style={{ align: "center", marginLeft : "40%" , fontSize:"30px" , height : "60px", width:"60px", marginTop : "18%"}}
+                  role="status"
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div></p>
       </div>
     );
   }

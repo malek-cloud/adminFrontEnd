@@ -1,0 +1,135 @@
+    .friendMessage {
+        background-color: rgb(29, 122, 29);
+        color: white;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 25px;
+        border-bottom-right-radius: 12px;
+        padding: 8px 14px;
+        padding-right: 16px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    .messageWrapper {
+        display: flex;
+        margin-bottom: 15px;
+        max-width: 32vw;
+    }
+    
+    .writeMess {
+        height: 6vh;
+        width: 38vw;
+        margin-left: 10px;
+        border: none;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        border-bottom-left-radius: 30px;
+        background-color: rgb(247, 247, 247);
+        padding-left: 20px;
+        padding-bottom: 6px;
+    }
+    
+    .writeMess:focus {
+        background-color: white;
+        border: none;
+    }
+    
+    .writeMessWrapper {
+        display: flex;
+    }
+    
+    .senderButton {
+        color: rgb(45, 87, 62);
+        margin-left: 15px;
+        cursor: pointer;
+    }
+    
+    .all {
+        height: 82vh;
+        background-color: rgb(234, 248, 234);
+        border-radius: 10px;
+        margin: 0px 15px;
+    }
+    
+    .messagesWrapper {
+        height: 67vh;
+        overflow-y: scroll;
+    }
+    
+    .mymessageWrapper {
+        display: flex;
+        margin-bottom: 15px;
+        max-width: 40vw;
+        margin-left: 110px;
+    }
+    
+    .myMessage {
+        background-color: rgb(144, 195, 144);
+        color: white;
+        justify-content: right;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 15px;
+        border-bottom-left-radius: 12px;
+        padding: 8px 14px;
+        padding-right: 16px;
+    }
+    
+    .connectedUserImageHeader {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border-color: cornsilk;
+        object-fit: cover;
+    }
+    
+    .Wrapper {
+        display: flex;
+        cursor: pointer;
+        margin-top: 6px;
+        margin-left: 18px;
+    }
+    
+    .connectedNameHeader {
+        margin-top: 2px;
+        font-size: 16px;
+        font-weight: 500;
+        color: white;
+    }
+    
+    .connectedNameHeader:hover {
+        text-decoration: underline;
+    }
+    
+    .stateHeader {
+        font-size: 12px;
+        color: white;
+    }
+    
+    .Wrap {
+        flex-direction: column;
+        margin-left: 10px;
+    }
+    
+    .wrapAll {
+        justify-content: space-between;
+        display: flex;
+        background-color: rgb(121, 156, 121);
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    
+    .callIcon {
+        color: white;
+        margin-right: 22px;
+        margin-left: 8px;
+        padding-top: 10px;
+    }
+    
+    .emptySpace {
+        height: 8px;
+    }
+    
+    .orth {
+        flex-direction: column;
+    }
